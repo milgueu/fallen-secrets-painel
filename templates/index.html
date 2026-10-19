@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,30 @@
     <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
             background: radial-gradient(circle at top, #1e0b36 0%, #0a0413 100%);
-            color: #f3e8ff; 
-            margin: 0; 
-            padding: 30px 15px; 
+            color: #f3e8ff;
+            margin: 0;
+            padding: 30px 15px;
             min-height: 100vh;
         }
-        .container { 
-            max-width: 950px; 
-            margin: 0 auto; 
-            background: rgba(23, 11, 38, 0.85); 
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: rgba(23, 11, 38, 0.85);
             backdrop-filter: blur(10px);
-            padding: 30px; 
-            border-radius: 16px; 
-            border: 1px solid #6b21a8; 
-            box-shadow: 0 0 30px rgba(147, 51, 234, 0.25), inset 0 0 15px rgba(168, 85, 247, 0.1); 
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #6b21a8;
+            box-shadow: 0 0 30px rgba(147, 51, 234, 0.25), inset 0 0 15px rgba(168, 85, 247, 0.1);
         }
+
         .header-box {
             display: flex;
             justify-content: space-between;
@@ -36,17 +42,24 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-        .header-actions { display: flex; gap: 10px; align-items: center; }
-        h1 { 
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        h1 {
             margin: 0;
             font-size: 26px;
             font-weight: 800;
-            color: #f3e8ff; 
-            text-shadow: 0 0 12px rgba(192, 132, 252, 0.8), 0 0 20px rgba(147, 51, 234, 0.5); 
+            color: #f3e8ff;
+            text-shadow: 0 0 12px rgba(192, 132, 252, 0.8), 0 0 20px rgba(147, 51, 234, 0.5);
             display: flex;
             align-items: center;
             gap: 10px;
         }
+
         .info-sinc {
             font-size: 13px;
             color: #c084fc;
@@ -60,15 +73,28 @@
             border: 1px solid rgba(168, 85, 247, 0.3);
             width: fit-content;
         }
-        .form-group { display: flex; gap: 12px; margin-bottom: 20px; }
-        .search-group { margin-bottom: 18px; }
+
+        .form-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .search-group {
+            margin-bottom: 18px;
+        }
+
         .search-wrapper {
             position: relative;
             display: flex;
             align-items: center;
             width: 100%;
         }
-        .search-wrapper input { padding-left: 42px; }
+
+        .search-wrapper input {
+            padding-left: 42px;
+        }
+
         .search-icon {
             position: absolute;
             left: 14px;
@@ -78,48 +104,65 @@
             filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6));
             opacity: 0.85;
         }
-        input { 
+
+        input {
             width: 100%;
-            padding: 12px 16px; 
-            border-radius: 8px; 
-            border: 1px solid #581c87; 
-            background: #0d061a; 
-            color: #fff; 
-            font-size: 15px; 
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #581c87;
+            background: #0d061a;
+            color: #fff;
+            font-size: 15px;
             font-family: inherit;
-            outline: none; 
+            outline: none;
             transition: all 0.3s ease;
         }
-        input:focus { border-color: #a855f7; box-shadow: 0 0 12px rgba(168, 85, 247, 0.6); }
-        input[type=number]::-webkit-inner-spin-button, 
-        input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
-        input[type=number] { appearance: textfield; text-align: center; font-weight: 600; }
-        
-        button { 
-            background: linear-gradient(135deg, #7e22ce 0%, #a855f7 100%); 
-            color: white; 
-            border: none; 
-            padding: 12px 22px; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            font-weight: 700; 
+
+        input:focus {
+            border-color: #a855f7;
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            appearance: textfield;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        button {
+            background: linear-gradient(135deg, #7e22ce 0%, #a855f7 100%);
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
             font-family: inherit;
-            transition: all 0.25s ease; 
-            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4); 
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
             display: inline-flex;
             align-items: center;
             gap: 8px;
             white-space: nowrap;
         }
-        button:hover { 
+
+        button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.7); 
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.7);
             background: linear-gradient(135deg, #9333ea 0%, #c084fc 100%);
         }
+
         button.btn-sync {
             background: linear-gradient(135deg, #8a2be2 0%, #a855f7 100%);
             box-shadow: 0 0 12px rgba(138, 43, 226, 0.6);
         }
+
         .btn-sync img {
             width: 18px;
             height: 18px;
@@ -127,18 +170,31 @@
             vertical-align: middle;
             filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
         }
-        .syncing-spin { animation: spin 1.2s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .syncing-spin {
+            animation: spin 1.2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
         button.btn-reset {
             background: linear-gradient(135deg, #4c1d95 0%, #6b21a8 100%);
             box-shadow: 0 4px 12px rgba(107, 33, 168, 0.4);
         }
-        button.btn-danger { 
-            background: linear-gradient(135deg, #9f1239 0%, #e11d48 100%); 
+
+        button.btn-danger {
+            background: linear-gradient(135deg, #9f1239 0%, #e11d48 100%);
             padding: 7px 14px;
             font-size: 13px;
-            box-shadow: 0 2px 8px rgba(225, 29, 72, 0.4); 
+            box-shadow: 0 2px 8px rgba(225, 29, 72, 0.4);
         }
 
         .tabela-wrapper {
@@ -149,14 +205,29 @@
             padding-right: 4px;
             background: #0d061a;
         }
-        .tabela-wrapper::-webkit-scrollbar { width: 8px; }
-        .tabela-wrapper::-webkit-scrollbar-track { background: #0d061a; border-radius: 8px; }
-        .tabela-wrapper::-webkit-scrollbar-thumb { background: #7e22ce; border-radius: 8px; }
 
-        table { width: 100%; border-collapse: collapse; }
-        th { 
-            background: #170b26; 
-            color: #c084fc; 
+        .tabela-wrapper::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .tabela-wrapper::-webkit-scrollbar-track {
+            background: #0d061a;
+            border-radius: 8px;
+        }
+
+        .tabela-wrapper::-webkit-scrollbar-thumb {
+            background: #7e22ce;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #170b26;
+            color: #c084fc;
             padding: 12px;
             font-size: 14px;
             text-transform: uppercase;
@@ -166,29 +237,68 @@
             top: 0;
             z-index: 2;
         }
-        td { padding: 12px; background: #140a24; border-bottom: 1px solid #2e1065; }
-        tr:hover td { background: #1c0e33; }
 
-        tr.elegivel-row td { 
-            background: rgba(168, 85, 247, 0.12); 
+        td {
+            padding: 12px;
+            background: #140a24;
+            border-bottom: 1px solid #2e1065;
+        }
+
+        tr:hover td {
+            background: #1c0e33;
+        }
+
+        tr.elegivel-row td {
+            background: rgba(168, 85, 247, 0.12);
             border-left: 3px solid #a855f7;
         }
 
-        .badge { padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; display: inline-block; }
-        .badge-success { background: rgba(126, 34, 206, 0.3); border: 1px solid #a855f7; color: #f3e8ff; box-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
-        .badge-danger { background: rgba(76, 5, 25, 0.3); border: 1px solid #9f1239; color: #fda4af; }
-        
-        .sorteio-box { 
-            text-align: center; 
-            margin-top: 25px; 
-            padding: 20px; 
-            background: linear-gradient(180deg, #1f0d38 0%, #120624 100%); 
-            border-radius: 14px; 
-            border: 1px solid #7e22ce; 
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .badge-success {
+            background: rgba(126, 34, 206, 0.3);
+            border: 1px solid #a855f7;
+            color: #f3e8ff;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+        }
+
+        .badge-danger {
+            background: rgba(76, 5, 25, 0.3);
+            border: 1px solid #9f1239;
+            color: #fda4af;
+        }
+
+        .sorteio-box {
+            text-align: center;
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(180deg, #1f0d38 0%, #120624 100%);
+            border-radius: 14px;
+            border: 1px solid #7e22ce;
             box-shadow: 0 0 20px rgba(126, 34, 206, 0.2);
         }
-        .sorteio-box h2 { margin-top: 0; color: #f3e8ff; font-size: 20px; text-shadow: 0 0 10px rgba(168, 85, 247, 0.6); }
-        #resultado-sorteio { font-size: 20px; font-weight: 800; color: #c084fc; margin-top: 10px; min-height: 28px; text-shadow: 0 0 10px rgba(168, 85, 247, 0.5); }
+
+        .sorteio-box h2 {
+            margin-top: 0;
+            color: #f3e8ff;
+            font-size: 20px;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+        }
+
+        #resultado-sorteio {
+            font-size: 20px;
+            font-weight: 800;
+            color: #c084fc;
+            margin-top: 10px;
+            min-height: 28px;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+        }
 
         .footer {
             text-align: center;
@@ -199,49 +309,86 @@
             color: #a855f7;
             letter-spacing: 0.5px;
         }
+
         .footer strong {
             color: #f3e8ff;
             text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
         }
 
         @media (max-width: 600px) {
-            body { padding: 15px 8px; }
-            .container { padding: 18px 12px; }
-            .header-box { flex-direction: column; align-items: stretch; text-align: center; }
-            h1 { justify-content: center; font-size: 20px; }
-            .header-actions { flex-direction: column; width: 100%; }
-            button { width: 100%; justify-content: center; }
-            .form-group { flex-direction: column; }
-            .tabela-wrapper { overflow-x: auto; }
-            table { min-width: 550px; }
+            body {
+                padding: 15px 8px;
+            }
+
+            .container {
+                padding: 18px 12px;
+            }
+
+            .header-box {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            h1 {
+                justify-content: center;
+                font-size: 20px;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+
+            .tabela-wrapper {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 550px;
+            }
         }
     </style>
 </head>
+
 <body data-admin="{{ 'true' if modo_admin else 'false' }}">
     <div class="container">
         <div class="header-box">
             <h1>
-              <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo do Clã" style="height: 45px; vertical-align: middle; margin-right: -5px; border-radius: 6px; filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.9));">
-              <span style="font-size: 30px;">PAINEL FALLEN SECRETS</span>
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo do Clã"
+                    style="height: 45px; vertical-align: middle; margin-right: -5px; border-radius: 6px; filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.9));">
+                <span style="font-size: 30px;">PAINEL FALLEN SECRETS</span>
             </h1>
             <div class="header-actions">
                 <button class="btn-sync" onclick="sincronizarXP(event)">
                     <img src="{{ url_for('static', filename='lobo.png') }}" alt="Lobo"> Sincronizar
                 </button>
                 {% if modo_admin %}
-                    <button class="btn-reset" onclick="virarMes()">🔄 Resetar</button>
+                <button class="btn-reset" onclick="virarMes()">🔄 Resetar</button>
                 {% endif %}
             </div>
         </div>
 
         <!-- SELO DE ÚLTIMA SINCRONIZAÇÃO -->
         <div class="info-sinc">
-            <img src="{{ url_for('static', filename='relogio.png') }}" alt="Relógio" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));"> Última sincronização: <strong id="texto-ultima-sinc">Carregando...</strong>
+            <img src="{{ url_for('static', filename='relogio.png') }}" alt="Relógio"
+                style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
+            Última sincronização: <strong id="texto-ultima-sinc">Carregando...</strong>
         </div>
 
         {% if modo_admin %}
         <form id="form-membro" class="form-group" onsubmit="adicionarMembro(event)">
-            <input type="text" id="nome" placeholder="Digite o nick do novo jogador para adicionar..." required autocomplete="off">
+            <input type="text" id="nome" placeholder="Digite o nick do novo jogador para adicionar..." required
+                autocomplete="off">
             <button type="submit">➕ Adicionar Membro</button>
         </form>
         {% endif %}
@@ -249,7 +396,8 @@
         <div class="search-group">
             <div class="search-wrapper">
                 <img src="{{ url_for('static', filename='lupa.png') }}" alt="Pesquisar" class="search-icon">
-                <input type="text" id="input-pesquisa" placeholder="Pesquisar membro pelo nick..." onkeyup="filtrarMembros()" autocomplete="off">
+                <input type="text" id="input-pesquisa" placeholder="Insira o nick do jogador..."
+                    onkeyup="filtrarMembros()" autocomplete="off">
             </div>
         </div>
 
@@ -263,7 +411,7 @@
                         <th style="text-align: left;">Total</th>
                         <th style="text-align: center;">Status (≥ 50k)</th>
                         {% if modo_admin %}
-                            <th style="text-align: center;">Ações</th>
+                        <th style="text-align: center;">Ações</th>
                         {% endif %}
                     </tr>
                 </thead>
@@ -395,13 +543,13 @@
         async function atualizarXP(id, campo, valor) {
             const payload = {};
             payload[campo] = parseInt(valor) || 0;
-            
+
             await fetch(`/api/membros/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-            
+
             await carregarMembros();
         }
 
@@ -443,16 +591,24 @@
         }
 
         async function sincronizarXP(event) {
-            const btn = event.target.closest('button');
-            const textoOriginal = btn.innerHTML;
-            
-            btn.innerHTML = `<img src="{{ url_for('static', filename='sinc.png') }}" alt="Sinc" class="syncing-spin"> Sincronizando...`;
+            const btn = event.currentTarget || event.target.closest('button');
+            const img = btn.querySelector('img');
+
+            // 1. Guarda o caminho original da imagem (lobo.png)
+            const srcOriginal = img ? img.src : '';
+            // 2. Monta o caminho para a imagem sinc.png usando a mesma pasta estática
+            const srcSinc = "{{ url_for('static', filename='sinc.png') }}";
+
+            if (img) {
+                img.src = srcSinc;                  // Troca para o ícone de sincronizar
+                img.classList.add('syncing-spin');  // Põe a girar
+            }
             btn.disabled = true;
 
             try {
                 const response = await fetch('/sincronizar', { method: 'POST' });
                 const data = await response.json();
-                
+
                 alert(data.message);
                 if (data.success) {
                     await carregarMembros();
@@ -460,7 +616,10 @@
             } catch (err) {
                 alert("Erro de comunicação com o servidor.");
             } finally {
-                btn.innerHTML = textoOriginal;
+                if (img) {
+                    img.classList.remove('syncing-spin'); // Para de girar
+                    img.src = srcOriginal;                 // Volta a ser o lobo.png
+                }
                 btn.disabled = false;
             }
         }
@@ -468,4 +627,5 @@
         carregarMembros();
     </script>
 </body>
+
 </html>

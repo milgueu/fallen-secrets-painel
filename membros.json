@@ -3,7 +3,7 @@
         "id": 2,
         "nome": "SantaKaya",
         "xp_inicial": 596230,
-        "xp_final": 709717,
+        "xp_final": 711847,
         "player_id": "7c8ff6d9-b06b-468c-8f41-7542a139c16d"
     },
     {
@@ -17,7 +17,7 @@
         "id": 4,
         "nome": "748293",
         "xp_inicial": 323647,
-        "xp_final": 362785,
+        "xp_final": 363570,
         "player_id": "4eeafb41-12ce-4752-8937-fbd5d21112b2"
     },
     {
@@ -38,7 +38,7 @@
         "id": 7,
         "nome": "Mizushina",
         "xp_inicial": 266092,
-        "xp_final": 276298,
+        "xp_final": 277288,
         "player_id": "0d25b079-1f89-4334-9a97-bb03dbd8524f"
     },
     {
@@ -59,14 +59,14 @@
         "id": 10,
         "nome": "Pocky",
         "xp_inicial": 205731,
-        "xp_final": 217044,
+        "xp_final": 218691,
         "player_id": "40216abd-2076-4c64-adc9-e0e55f598b98"
     },
     {
         "id": 11,
         "nome": "Giachini",
         "xp_inicial": 193170,
-        "xp_final": 212288,
+        "xp_final": 212868,
         "player_id": "3efa0d84-d31c-4e88-b03a-39917dde63c0"
     },
     {
@@ -94,7 +94,7 @@
         "id": 15,
         "nome": "IShark",
         "xp_inicial": 112490,
-        "xp_final": 114752,
+        "xp_final": 114857,
         "player_id": "a1fcdcd3-94ca-40ff-be61-699e214d2169"
     },
     {
@@ -108,14 +108,14 @@
         "id": 19,
         "nome": "iCherry",
         "xp_inicial": 29969,
-        "xp_final": 61293,
+        "xp_final": 61718,
         "player_id": "55f2fb41-3cb4-425c-b42d-61aeb4591c66"
     },
     {
         "id": 20,
         "nome": "yNotDeat",
         "xp_inicial": 51402,
-        "xp_final": 58475,
+        "xp_final": 58695,
         "player_id": "1604322c-48f1-4428-a38b-f19e10e4dc1f"
     },
     {
@@ -185,7 +185,7 @@
         "id": 31,
         "nome": "hair",
         "xp_inicial": 1,
-        "xp_final": 17668,
+        "xp_final": 19373,
         "player_id": "53aa9846-dc68-451e-900a-0029ca5ba4b5"
     },
     {
@@ -213,7 +213,7 @@
         "id": 35,
         "nome": "ISTAMBUL",
         "xp_inicial": 44340,
-        "xp_final": 65080,
+        "xp_final": 65850,
         "player_id": "8cd227b8-8eff-4a70-97c0-594fbaf6bc04"
     },
     {
@@ -227,7 +227,7 @@
         "id": 37,
         "nome": "oGhost",
         "xp_inicial": 2126233,
-        "xp_final": 2192194,
+        "xp_final": 2192444,
         "player_id": "6b72c80b-050f-42f0-a60f-df9b923b39a9"
     }
 ]

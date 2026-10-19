@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import json
 import os
 import requests
@@ -155,9 +155,9 @@ def sincronizar():
     salvar_dados(membros)
     
     # Atualiza o horário global da última sincronização
-    agora = datetime.now()
+    fuso_brasil = timezone(timedelta(hours=-3))
+    agora = datetime.now(fuso_brasil)
     ULTIMA_SINCRONIZACAO = agora.strftime("%d/%m/%Y às %H:%M")
-    
     msg = f"Sincronizado! ({membros_atualizados} membros atualizados com XP do jogo)"
     if nicks_alterados > 0:
         msg += f" — 🔄 {nicks_alterados} nick(s) alterado(s) e atualizado(s) no painel!"
