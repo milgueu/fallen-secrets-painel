@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fallen Secrets - XP Mensal</title>
+    <title>FS • XP Mensal</title>
     <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
     <link rel="preload" as="image" href="{{ url_for('static', filename='sinc.png') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
@@ -61,10 +61,19 @@
             gap: 10px;
         }
 
-        .info-sinc {
+        /* BARRA DE STATUS (Última Sincronização + Período do Torneio) */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .info-sinc, .info-periodo {
             font-size: 13px;
             color: #c084fc;
-            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -159,14 +168,17 @@
             background: linear-gradient(135deg, #9333ea 0%, #c084fc 100%);
         }
 
+       
         button.btn-sync {
             background: linear-gradient(135deg, #8a2be2 0%, #a855f7 100%);
             box-shadow: 0 0 12px rgba(138, 43, 226, 0.6);
+            padding: 9px 18px;
+            font-size: 14px;
         }
 
         .btn-sync img {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             object-fit: contain;
             vertical-align: middle;
             filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
@@ -189,6 +201,8 @@
         button.btn-reset {
             background: linear-gradient(135deg, #4c1d95 0%, #6b21a8 100%);
             box-shadow: 0 4px 12px rgba(107, 33, 168, 0.4);
+            padding: 9px 18px;
+            font-size: 14px;
         }
 
         button.btn-danger {
@@ -229,8 +243,8 @@
         th {
             background: #170b26;
             color: #c084fc;
-            padding: 12px;
-            font-size: 14px;
+            padding: 14px 16px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-bottom: 2px solid #3b1d62;
@@ -240,17 +254,23 @@
         }
 
         td {
-            padding: 12px;
+            padding: 14px 16px;
             background: #140a24;
             border-bottom: 1px solid #2e1065;
+            border-left: none;
+            border-right: none;
         }
 
         tr:hover td {
             background: #1c0e33;
         }
 
+        /* Destaque limpo e profissional para as linhas elegíveis */
         tr.elegivel-row td {
             background: rgba(168, 85, 247, 0.12);
+        }
+
+        tr.elegivel-row td:first-child {
             border-left: 3px solid #a855f7;
         }
 
@@ -273,6 +293,12 @@
             background: rgba(76, 5, 25, 0.3);
             border: 1px solid #9f1239;
             color: #fda4af;
+        }
+
+        .badge-isento {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #a0a0a0;
         }
 
         .sorteio-box {
@@ -304,16 +330,27 @@
         .footer {
             text-align: center;
             margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid #3b1d62;
-            font-size: 13px;
-            color: #a855f7;
-            letter-spacing: 0.5px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(107, 33, 168, 0.4);
+            font-size: 12px;
+            color: #a0a0a0;
+            opacity: 0.85;
         }
 
         .footer strong {
             color: #f3e8ff;
-            text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+        }
+
+        .footer a.link-api {
+            color: #c084fc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .footer a.link-api:hover {
+            color: #d8b4fe;
+            text-decoration: underline;
         }
 
         @media (max-width: 600px) {
@@ -346,6 +383,16 @@
                 justify-content: center;
             }
 
+            .status-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .info-sinc, .info-periodo {
+                width: 100%;
+                justify-content: center;
+            }
+
             .form-group {
                 flex-direction: column;
             }
@@ -367,11 +414,11 @@
             <h1>
                 <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo do Clã"
                     style="height: 45px; vertical-align: middle; margin-right: -5px; border-radius: 6px; filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.9));">
-                <span style="font-size: 30px;">PAINEL FALLEN SECRETS</span>
+                <span style="font-size: 30px;">XP MENSAL FALLEN SECRETS</span>
             </h1>
             <div class="header-actions">
                 <button class="btn-sync" onclick="sincronizarXP(event)">
-                    <img src="{{ url_for('static', filename='lobo.png') }}" alt="Lobo"> Sincronizar
+                    <img src="{{ url_for('static', filename='lobo.png') }}" alt="Lobo"> <span id="texto-btn-sync">Sincronizar</span>
                 </button>
                 {% if modo_admin %}
                 <button class="btn-reset" onclick="virarMes()">🔄 Resetar</button>
@@ -379,11 +426,19 @@
             </div>
         </div>
 
-        <!-- SELO DE ÚLTIMA SINCRONIZAÇÃO -->
-        <div class="info-sinc">
-            <img src="{{ url_for('static', filename='relogio.png') }}" alt="Relógio"
-                style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
-            Última sincronização: <strong id="texto-ultima-sinc">Carregando...</strong>
+        <!-- BARRA DE STATUS: ÚLTIMA SINCRONIZAÇÃO E PERÍODO DO TORNEIO -->
+        <div class="status-bar">
+            <div class="info-sinc">
+                <img src="{{ url_for('static', filename='relogio.png') }}" alt="Relógio"
+                    style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
+                Última sincronização: <strong id="texto-ultima-sinc">Carregando...</strong>
+            </div>
+
+            <div class="info-periodo">
+                <img src="{{ url_for('static', filename='calendario.png') }}" alt="Calendário"
+                    style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
+                Período: <strong>07/10 a 07/11</strong>
+            </div>
         </div>
 
         {% if modo_admin %}
@@ -429,11 +484,14 @@
         {% endif %}
 
         <div class="footer">
-            Desenvolvido por <strong>bend</strong> • Fallen Secrets © 2026
+            Desenvolvido por <strong>bend</strong> • Fallen Secrets © 2026 • Site não oficial, sob os termos de uso da <a href="https://api-docs.wolvesville.com/#/tos" target="_blank" class="link-api">API do Wolvesville</a>
         </div>
     </div>
 
     <script>
+        // Lista de contas isentas que não participam do sorteio e aparecem como "Não Participa" no final da tabela
+        const nicksExcluidos = ['Amelyth', 'bend', 'IHeaven_', 'deban'];
+        
         const IS_ADMIN = document.body.getAttribute('data-admin') === 'true';
 
         async function carregarMembros() {
@@ -443,6 +501,12 @@
             tbody.innerHTML = '';
 
             membros.sort((a, b) => {
+                const isExcluidoA = nicksExcluidos.includes(a.nome);
+                const isExcluidoB = nicksExcluidos.includes(b.nome);
+
+                if (isExcluidoA && !isExcluidoB) return 1;
+                if (!isExcluidoA && isExcluidoB) return -1;
+
                 const initA = parseInt(a.xp_inicial) || 0;
                 const finA = parseInt(a.xp_final) || 0;
                 const ganhoA = finA > 0 ? (finA - initA) : 0;
@@ -458,7 +522,9 @@
                 const xpInit = parseInt(m.xp_inicial) || 0;
                 const xpFin = parseInt(m.xp_final) || 0;
                 const ganho = xpFin > 0 ? (xpFin - xpInit) : 0;
-                const elegivel = ganho >= 50000;
+                
+                const ehExcluido = nicksExcluidos.includes(m.nome);
+                const elegivel = !ehExcluido && (ganho >= 50000);
 
                 const tr = document.createElement('tr');
                 if (elegivel) {
@@ -480,14 +546,21 @@
 
                 let acoesTd = IS_ADMIN ? `<td style="text-align: center;"><button class="btn-danger" onclick="removerMembro(${m.id})">Remover</button></td>` : '';
 
+                let statusBadge = '';
+                if (ehExcluido) {
+                    statusBadge = `<span class="badge badge-isento">✕ Não Participa</span>`;
+                } else if (elegivel) {
+                    statusBadge = `<span class="badge badge-success">✓ Elegível</span>`;
+                } else {
+                    statusBadge = `<span class="badge badge-danger">✕ Não Elegível</span>`;
+                }
+
                 tr.innerHTML = `
                     <td style="text-align: left;" class="membro-nome"><strong>${m.nome}</strong></td>
                     ${inputsXP}
                     <td style="text-align: left; color: #d8b4fe; font-weight: 700;">${ganho.toLocaleString('pt-BR')} XP</td>
                     <td style="text-align: center;">
-                        <span class="badge ${elegivel ? 'badge-success' : 'badge-danger'}">
-                            ${elegivel ? '✨ Elegível' : '❌ Não Elegível'}
-                        </span>
+                        ${statusBadge}
                     </td>
                     ${acoesTd}
                 `;
@@ -572,6 +645,8 @@
             const res = await fetch('/api/membros');
             const membros = await res.json();
             const elegiveis = membros.filter(m => {
+                if (nicksExcluidos.includes(m.nome)) return false;
+
                 const init = parseInt(m.xp_inicial) || 0;
                 const fin = parseInt(m.xp_final) || 0;
                 const ganho = fin > 0 ? (fin - init) : 0;
@@ -584,7 +659,7 @@
                 return;
             }
 
-            div.innerHTML = '🔮 Embalando as recompensas...';
+            div.innerHTML = 'Sorteando vencedor...';
             setTimeout(() => {
                 const vencedor = elegiveis[Math.floor(Math.random() * elegiveis.length)];
                 div.innerHTML = `🎉 Vencedor(a): <strong>${vencedor.nome}</strong>! 🏆`;
@@ -594,15 +669,17 @@
         async function sincronizarXP(event) {
             const btn = event.currentTarget || event.target.closest('button');
             const img = btn.querySelector('img');
+            const textoSpan = document.getElementById('texto-btn-sync');
 
-            // 1. Guarda o caminho original da imagem (lobo.png)
             const srcOriginal = img ? img.src : '';
-            // 2. Monta o caminho para a imagem sinc.png usando a mesma pasta estática
             const srcSinc = "{{ url_for('static', filename='sinc.png') }}";
 
             if (img) {
-                img.src = srcSinc;                  // Troca para o ícone de sincronizar
-                img.classList.add('syncing-spin');  // Põe a girar
+                img.src = srcSinc;
+                img.classList.add('syncing-spin');
+            }
+            if (textoSpan) {
+                textoSpan.innerText = "Sincronizando...";
             }
             btn.disabled = true;
 
@@ -618,8 +695,11 @@
                 alert("Erro de comunicação com o servidor.");
             } finally {
                 if (img) {
-                    img.classList.remove('syncing-spin'); // Para de girar
-                    img.src = srcOriginal;                 // Volta a ser o lobo.png
+                    img.classList.remove('syncing-spin');
+                    img.src = srcOriginal;
+                }
+                if (textoSpan) {
+                    textoSpan.innerText = "Sincronizar";
                 }
                 btn.disabled = false;
             }
