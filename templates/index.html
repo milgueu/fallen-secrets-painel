@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>FS • XP Mensal</title>
     <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
     <link rel="preload" as="image" href="{{ url_for('static', filename='sinc.png') }}">
@@ -13,13 +13,20 @@
             box-sizing: border-box;
         }
 
+        /* Elimina as bordas brancas no celular/orientação horizontal */
+        html, body {
+            background-color: #0a0413;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100vh;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: radial-gradient(circle at top, #1e0b36 0%, #0a0413 100%);
             color: #f3e8ff;
-            margin: 0;
             padding: 30px 15px;
-            min-height: 100vh;
         }
 
         .container {
@@ -52,7 +59,7 @@
 
         h1 {
             margin: 0;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             color: #f3e8ff;
             text-shadow: 0 0 12px rgba(192, 132, 252, 0.8), 0 0 20px rgba(147, 51, 234, 0.5);
@@ -61,7 +68,7 @@
             gap: 10px;
         }
 
-        /* BARRA DE STATUS (Última Sincronização + Período do Torneio) */
+        /* BARRA DE STATUS */
         .status-bar {
             display: flex;
             justify-content: space-between;
@@ -168,7 +175,6 @@
             background: linear-gradient(135deg, #9333ea 0%, #c084fc 100%);
         }
 
-       
         button.btn-sync {
             background: linear-gradient(135deg, #8a2be2 0%, #a855f7 100%);
             box-shadow: 0 0 12px rgba(138, 43, 226, 0.6);
@@ -265,7 +271,6 @@
             background: #1c0e33;
         }
 
-        /* Destaque limpo e profissional para as linhas elegíveis */
         tr.elegivel-row td {
             background: rgba(168, 85, 247, 0.12);
         }
@@ -353,48 +358,59 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 600px) {
+        /* --- AJUSTES EXCLUSIVOS PARA CELULAR / DISPOSITIVOS MÓVEIS --- */
+        @media (max-width: 768px) {
             body {
-                padding: 15px 8px;
+                padding: 10px 8px;
             }
 
             .container {
-                padding: 18px 12px;
+                padding: 16px 12px;
+                border-radius: 12px;
             }
 
-            .header-box {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-
+            /* Redução do título em telas menores */
             h1 {
-                justify-content: center;
-                font-size: 20px;
+                font-size: 18px !important;
             }
 
-            .header-actions {
-                flex-direction: column;
-                width: 100%;
+            h1 span {
+                font-size: 18px !important;
             }
 
-            button {
-                width: 100%;
-                justify-content: center;
+            h1 img {
+                height: 32px !important;
             }
 
-            .status-bar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
+            /* Redução de textos de status e botões em mobile */
             .info-sinc, .info-periodo {
-                width: 100%;
-                justify-content: center;
+                font-size: 11px;
+                padding: 5px 10px;
             }
 
-            .form-group {
-                flex-direction: column;
+            input {
+                font-size: 13px;
+                padding: 10px 14px;
+            }
+
+            th {
+                font-size: 11px;
+                padding: 10px 8px;
+            }
+
+            td {
+                font-size: 12px;
+                padding: 10px 8px;
+            }
+
+            .badge {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            button.btn-sync {
+                font-size: 12px;
+                padding: 7px 14px;
             }
 
             .tabela-wrapper {
@@ -402,7 +418,7 @@
             }
 
             table {
-                min-width: 550px;
+                min-width: 500px;
             }
         }
     </style>
@@ -413,8 +429,8 @@
         <div class="header-box">
             <h1>
                 <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo do Clã"
-                    style="height: 45px; vertical-align: middle; margin-right: -5px; border-radius: 6px; filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.9));">
-                <span style="font-size: 30px;">XP MENSAL FALLEN SECRETS</span>
+                    style="height: 40px; vertical-align: middle; margin-right: -5px; border-radius: 6px; filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.9));">
+                <span>PAINEL FALLEN SECRETS</span>
             </h1>
             <div class="header-actions">
                 <button class="btn-sync" onclick="sincronizarXP(event)">
@@ -426,17 +442,17 @@
             </div>
         </div>
 
-        <!-- BARRA DE STATUS: ÚLTIMA SINCRONIZAÇÃO E PERÍODO DO TORNEIO -->
+        <!-- BARRA DE STATUS -->
         <div class="status-bar">
             <div class="info-sinc">
                 <img src="{{ url_for('static', filename='relogio.png') }}" alt="Relógio"
-                    style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
+                    style="width: 14px; height: 14px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
                 Última sincronização: <strong id="texto-ultima-sinc">Carregando...</strong>
             </div>
 
             <div class="info-periodo">
                 <img src="{{ url_for('static', filename='calendario.png') }}" alt="Calendário"
-                    style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
+                    style="width: 14px; height: 14px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
                 Período: <strong>07/10 a 07/11</strong>
             </div>
         </div>
@@ -489,7 +505,6 @@
     </div>
 
     <script>
-        // Lista de contas isentas que não participam do sorteio e aparecem como "Não Participa" no final da tabela
         const nicksExcluidos = ['Amelyth', 'bend', 'IHeaven_', 'deban'];
         
         const IS_ADMIN = document.body.getAttribute('data-admin') === 'true';

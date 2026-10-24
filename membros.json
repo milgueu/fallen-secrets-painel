@@ -17,7 +17,7 @@
         "id": 4,
         "nome": "748293",
         "xp_inicial": 323647,
-        "xp_final": 378863,
+        "xp_final": 379075,
         "player_id": "4eeafb41-12ce-4752-8937-fbd5d21112b2"
     },
     {
@@ -108,7 +108,7 @@
         "id": 19,
         "nome": "iCherry",
         "xp_inicial": 29969,
-        "xp_final": 72454,
+        "xp_final": 72679,
         "player_id": "55f2fb41-3cb4-425c-b42d-61aeb4591c66"
     },
     {
@@ -143,7 +143,7 @@
         "id": 24,
         "nome": "Bobinha",
         "xp_inicial": 23000,
-        "xp_final": 53390,
+        "xp_final": 53677,
         "player_id": "456d1dfc-90ae-4a14-ab2b-d5d869722885"
     },
     {
@@ -185,7 +185,7 @@
         "id": 31,
         "nome": "hair",
         "xp_inicial": 0,
-        "xp_final": 38807,
+        "xp_final": 39087,
         "player_id": "53aa9846-dc68-451e-900a-0029ca5ba4b5"
     },
     {
@@ -242,14 +242,14 @@
         "player_id": "49e29e68-1d8d-4ca5-874b-93c62c387480",
         "nome": "deban",
         "xp_inicial": 79000,
-        "xp_final": 109043
+        "xp_final": 110003
     },
     {
         "id": 42,
         "player_id": "5e7dc5fa-9d3f-449b-9662-0d54d76deae4",
         "nome": "HAIR",
         "xp_inicial": 0,
-        "xp_final": 10458
+        "xp_final": 10548
     },
     {
         "id": 43,
