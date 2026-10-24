@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>FS • XP Mensal</title>
+    <title>Fallen Secrets | XP</title>
     <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
     <link rel="preload" as="image" href="{{ url_for('static', filename='sinc.png') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
             box-sizing: border-box;
         }
 
-        /* Elimina as bordas brancas no celular/orientação horizontal */
+        /* Elimina completamente as bordas brancas em qualquer orientação */
         html, body {
             background-color: #0a0413;
             margin: 0;
@@ -59,7 +59,7 @@
 
         h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 800;
             color: #f3e8ff;
             text-shadow: 0 0 12px rgba(192, 132, 252, 0.8), 0 0 20px rgba(147, 51, 234, 0.5);
@@ -358,59 +358,82 @@
             text-decoration: underline;
         }
 
-        /* --- AJUSTES EXCLUSIVOS PARA CELULAR / DISPOSITIVOS MÓVEIS --- */
-        @media (max-width: 768px) {
+        /* --- MEDIA QUERY REBALANCEADA PARA MÓVEL (EQUILÍBRIO IMG 1 + IMG 2) --- */
+        @media (max-width: 600px) {
             body {
-                padding: 10px 8px;
+                padding: 12px 10px;
             }
 
             .container {
-                padding: 16px 12px;
-                border-radius: 12px;
+                padding: 20px 14px;
             }
 
-            /* Redução do título em telas menores */
+            .header-box {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            /* Mantém o título imponente como na Imagem 1 */
             h1 {
-                font-size: 18px !important;
+                justify-content: center;
+                font-size: 22px !important;
             }
 
             h1 span {
-                font-size: 18px !important;
+                font-size: 22px !important;
             }
 
             h1 img {
-                height: 32px !important;
+                height: 38px !important;
             }
 
-            /* Redução de textos de status e botões em mobile */
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            /* Botão Sincronizar ganha destaque e largura total no topo */
+            button.btn-sync {
+                width: 100%;
+                justify-content: center;
+                font-size: 15px;
+                padding: 12px 20px;
+            }
+
+            .status-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            /* Pílulas de status legíveis e confortáveis */
             .info-sinc, .info-periodo {
-                font-size: 11px;
-                padding: 5px 10px;
+                width: 100%;
+                justify-content: center;
+                font-size: 12px;
+                padding: 7px 12px;
             }
 
+            /* Input de busca confortável */
             input {
-                font-size: 13px;
-                padding: 10px 14px;
+                font-size: 14px;
+                padding: 11px 15px;
             }
 
+            /* Tabela otimizada (como na Imagem 2) */
             th {
                 font-size: 11px;
-                padding: 10px 8px;
+                padding: 10px 6px;
             }
 
             td {
                 font-size: 12px;
-                padding: 10px 8px;
+                padding: 10px 6px;
             }
 
             .badge {
-                font-size: 10px;
-                padding: 4px 8px;
-            }
-
-            button.btn-sync {
-                font-size: 12px;
-                padding: 7px 14px;
+                font-size: 11px;
+                padding: 5px 10px;
             }
 
             .tabela-wrapper {
@@ -418,7 +441,7 @@
             }
 
             table {
-                min-width: 500px;
+                min-width: 520px;
             }
         }
     </style>
@@ -429,7 +452,7 @@
         <div class="header-box">
             <h1>
                 <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo do Clã"
-                    style="height: 40px; vertical-align: middle; margin-right: -5px; border-radius: 6px; filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.9));">
+                    style="height: 42px; vertical-align: middle; margin-right: -5px; border-radius: 6px; filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.9));">
                 <span>PAINEL FALLEN SECRETS</span>
             </h1>
             <div class="header-actions">
@@ -446,13 +469,13 @@
         <div class="status-bar">
             <div class="info-sinc">
                 <img src="{{ url_for('static', filename='relogio.png') }}" alt="Relógio"
-                    style="width: 14px; height: 14px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
+                    style="width: 15px; height: 15px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
                 Última sincronização: <strong id="texto-ultima-sinc">Carregando...</strong>
             </div>
 
             <div class="info-periodo">
                 <img src="{{ url_for('static', filename='calendario.png') }}" alt="Calendário"
-                    style="width: 14px; height: 14px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
+                    style="width: 15px; height: 15px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));">
                 Período: <strong>07/10 a 07/11</strong>
             </div>
         </div>
