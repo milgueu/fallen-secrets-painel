@@ -3,7 +3,7 @@
         "id": 2,
         "nome": "SantaKaya",
         "xp_inicial": 596230,
-        "xp_final": 734384,
+        "xp_final": 748315,
         "player_id": "7c8ff6d9-b06b-468c-8f41-7542a139c16d"
     },
     {
@@ -17,7 +17,7 @@
         "id": 4,
         "nome": "748293",
         "xp_inicial": 323647,
-        "xp_final": 379205,
+        "xp_final": 392321,
         "player_id": "4eeafb41-12ce-4752-8937-fbd5d21112b2"
     },
     {
@@ -38,35 +38,35 @@
         "id": 7,
         "nome": "Mizushina",
         "xp_inicial": 266092,
-        "xp_final": 281253,
+        "xp_final": 287913,
         "player_id": "0d25b079-1f89-4334-9a97-bb03dbd8524f"
     },
     {
         "id": 8,
         "nome": "ZeIntorpecente",
         "xp_inicial": 268701,
-        "xp_final": 276866,
+        "xp_final": 281467,
         "player_id": "9fd94b59-83fd-4b9b-8081-19182001bfc9"
     },
     {
         "id": 9,
         "nome": "Leann",
         "xp_inicial": 218472,
-        "xp_final": 238503,
+        "xp_final": 240453,
         "player_id": "d344b4fc-4e52-44e8-ac3a-7c290ea140f8"
     },
     {
         "id": 10,
         "nome": "Pocky",
         "xp_inicial": 205731,
-        "xp_final": 230729,
+        "xp_final": 236373,
         "player_id": "40216abd-2076-4c64-adc9-e0e55f598b98"
     },
     {
         "id": 11,
         "nome": "Giachini",
         "xp_inicial": 193170,
-        "xp_final": 220047,
+        "xp_final": 224459,
         "player_id": "3efa0d84-d31c-4e88-b03a-39917dde63c0"
     },
     {
@@ -94,28 +94,28 @@
         "id": 15,
         "nome": "IShark",
         "xp_inicial": 112490,
-        "xp_final": 117205,
+        "xp_final": 118183,
         "player_id": "a1fcdcd3-94ca-40ff-be61-699e214d2169"
     },
     {
         "id": 17,
         "nome": "CarlitaLoba",
         "xp_inicial": 76143,
-        "xp_final": 81530,
+        "xp_final": 84075,
         "player_id": "1c5e8591-a149-4b8a-8b7e-24027de25851"
     },
     {
         "id": 19,
         "nome": "iCherry",
         "xp_inicial": 29969,
-        "xp_final": 72857,
+        "xp_final": 80578,
         "player_id": "55f2fb41-3cb4-425c-b42d-61aeb4591c66"
     },
     {
         "id": 20,
         "nome": "yNotDeat",
         "xp_inicial": 51402,
-        "xp_final": 62381,
+        "xp_final": 69999,
         "player_id": "1604322c-48f1-4428-a38b-f19e10e4dc1f"
     },
     {
@@ -129,49 +129,49 @@
         "id": 22,
         "nome": "IZeph",
         "xp_inicial": 35485,
-        "xp_final": 52275,
+        "xp_final": 52442,
         "player_id": "ed30cdda-b0ec-48a7-a300-3107f640801d"
     },
     {
         "id": 23,
         "nome": "Tilapio",
         "xp_inicial": 48810,
-        "xp_final": 52949,
+        "xp_final": 55888,
         "player_id": "30903576-d2c1-443e-a200-67cc9fd65156"
     },
     {
         "id": 24,
         "nome": "Bobinha",
         "xp_inicial": 23000,
-        "xp_final": 53722,
+        "xp_final": 59588,
         "player_id": "456d1dfc-90ae-4a14-ab2b-d5d869722885"
     },
     {
         "id": 25,
         "nome": "iNicoRobin",
         "xp_inicial": 34699,
-        "xp_final": 41650,
+        "xp_final": 42930,
         "player_id": "901884f8-6597-4018-b2e8-786c94d44d0c"
     },
     {
         "id": 26,
         "nome": "Sora_Dark",
         "xp_inicial": 35989,
-        "xp_final": 41288,
+        "xp_final": 42641,
         "player_id": "add88a38-ae99-465a-8b58-a903104c1eb0"
     },
     {
         "id": 27,
         "nome": "rafsel",
         "xp_inicial": 12000,
-        "xp_final": 39063,
+        "xp_final": 40852,
         "player_id": "6887c0ab-630d-408d-8b10-97d97783b5c3"
     },
     {
         "id": 28,
         "nome": "Bluemy",
         "xp_inicial": 33333,
-        "xp_final": 34768,
+        "xp_final": 34778,
         "player_id": "2cf881c1-5dba-4322-a267-c30466ccda00"
     },
     {
@@ -185,7 +185,7 @@
         "id": 31,
         "nome": "hair",
         "xp_inicial": 0,
-        "xp_final": 39767,
+        "xp_final": 47777,
         "player_id": "53aa9846-dc68-451e-900a-0029ca5ba4b5"
     },
     {
@@ -213,7 +213,7 @@
         "id": 35,
         "nome": "ISTAMBUL",
         "xp_inicial": 44340,
-        "xp_final": 73203,
+        "xp_final": 74275,
         "player_id": "8cd227b8-8eff-4a70-97c0-594fbaf6bc04"
     },
     {
@@ -227,7 +227,7 @@
         "id": 37,
         "nome": "oGhost",
         "xp_inicial": 2126233,
-        "xp_final": 2220549,
+        "xp_final": 2227551,
         "player_id": "6b72c80b-050f-42f0-a60f-df9b923b39a9"
     },
     {
@@ -235,35 +235,35 @@
         "player_id": "d51b2088-000f-41e1-8386-9fc938fc6140",
         "nome": "bend",
         "xp_inicial": 215000,
-        "xp_final": 275926
+        "xp_final": 284283
     },
     {
         "id": 40,
         "player_id": "49e29e68-1d8d-4ca5-874b-93c62c387480",
         "nome": "deban",
         "xp_inicial": 79000,
-        "xp_final": 110043
+        "xp_final": 119105
     },
     {
         "id": 42,
         "player_id": "5e7dc5fa-9d3f-449b-9662-0d54d76deae4",
         "nome": "HAIR",
         "xp_inicial": 0,
-        "xp_final": 11368
+        "xp_final": 18502
     },
     {
         "id": 43,
         "player_id": "ca92d193-48bc-4c0c-816a-6b9f90776208",
         "nome": "Passos",
         "xp_inicial": 0,
-        "xp_final": 6708
+        "xp_final": 7113
     },
     {
         "id": 44,
         "player_id": "42f43f7a-0c73-4c0f-9bb1-fcff075cf5ce",
         "nome": "Amelyth",
         "xp_inicial": 5464108,
-        "xp_final": 5564108
+        "xp_final": 5568923
     },
     {
         "id": 45,
